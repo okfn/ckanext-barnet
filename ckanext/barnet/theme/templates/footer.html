@@ -1,0 +1,56 @@
+{% ckan_extends %}
+
+    {% block footer_content %}
+      <div class="row">
+        <div class="span3">
+          <p>Tel: 020 8359 2000 <br>
+          Email: first.contact@barnet.gov.uk <br>
+          Fax: 020 8359 4156</p>
+          <p>North London Business Park (NLBP) <br>
+          Oakleigh Road South <br>
+          London <br>
+          N11 1NP</p>
+        </div>
+        {% block footer_nav %}
+        <div class="span3">
+          <ul class="unstyled">
+            {% block footer_links %}
+              <li><a href="{{ h.url_for(controller='home', action='about') }}">{{ _('About {0}').format(g.site_title) }}</a></li>
+              <li><a href="http://www.barnet.gov.uk/copyright">Copyright</a></li>
+              <li><a href="http://www.barnet.gov.uk/privacy">Privacy notice</a></li>
+              <li><a href="http://www.barnet.gov.uk/accessibility">Accessibility</a></li>
+            {% endblock %}
+          </ul>
+         </div>
+         <div class="span3">
+           <ul class="unstyled">
+            {% block footer_links_ckan %}
+              {% set api_url = 'http://docs.ckan.org/en/{0}/api.html'.format(g.ckan_doc_version) %}
+              <li><a href="http://www.barnet.gov.uk/terms">Disclaimer</a></li>
+              <li><a href="http://www.barnet.gov.uk/contact">Contact us</a></li>
+              <li><a href="{{ api_url }}">{{ _('CKAN API') }}</a></li>
+              <li><a href="http://www.okfn.org/">{{ _('Open Knowledge') }}</a></li>
+            {% endblock %}
+          </ul>
+        </div>
+        {% endblock %}
+        <div class="span3">
+          {% if g.site_logo %}
+            <a class="logo pull-right clearfix" href="http://www.barnet.gov.uk/"><img src="{{ h.url_for_static(g.site_logo) }}" alt="{{ g.site_title }} Logo" title="{{ g.site_title }} Logo" /></a>
+          {% endif %}
+          
+          {% block footer_lang %}
+            {% snippet "snippets/language_selector.html" %}
+          {% endblock %}
+          
+          {% block footer_attribution %}
+            <a class="hide-text ckan-footer-logo" href="http://ckan.org">CKAN</a>
+          {% endblock %}
+          <ul class="icons">
+            <li><a title="London Borough of Barnet on YouTube" href="http://www.youtube.com/Barnetcouncil1" target="_blank"><i class="icon-youtube-play"></i> <span class="sr-only">YouTube</span></a></li>
+            <li><a title="London Borough of Barnet on Facebook" href="http://www.facebook.com/barnetcouncil" target="_blank"><i class="icon-facebook"></i> <span class="sr-only">Facebook</span></a></li>
+            <li><a title="London Borough of Barnet on Twitter" href="http://www.twitter.com/barnetcouncil" target="_blank"><span class="sr-only">Twitter</span> <i class="icon-twitter"></i></a></li>
+            <li><a title="London Borough of Barnet on Flickr" href="http://www.flickr.com/photos/barnetcouncil" target="_blank"><i class="icon-flickr"></i> <span class="sr-only">Flickr</span></a></li>
+          </ul>
+        </div>
+    {% endblock %}

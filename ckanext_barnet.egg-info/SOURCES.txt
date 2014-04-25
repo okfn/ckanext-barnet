@@ -1,0 +1,11 @@
+setup.py
+ckanext/__init__.py
+ckanext/barnet/__init__.py
+ckanext/barnet/plugin.py
+ckanext_barnet.egg-info/PKG-INFO
+ckanext_barnet.egg-info/SOURCES.txt
+ckanext_barnet.egg-info/dependency_links.txt
+ckanext_barnet.egg-info/entry_points.txt
+ckanext_barnet.egg-info/namespace_packages.txt
+ckanext_barnet.egg-info/not-zip-safe
+ckanext_barnet.egg-info/top_level.txt
