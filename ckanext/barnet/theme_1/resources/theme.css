@@ -192,6 +192,7 @@ a:focus {
   margin: 0;
   width: 250px;
   border-color: #c8cacb #c8cacb #e1e3e4 #e1e3e4;
+  height: 21px;
 }
 .masthead .section.site-search label,
 .masthead .section.site-search button {
