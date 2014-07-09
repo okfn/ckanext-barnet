@@ -15,15 +15,15 @@ class BarnetPlugin(plugins.SingletonPlugin):
         # that CKAN will use this plugin's custom templates.
         # 'templates' is the path to the templates dir, relative to this
         # plugin.py file.
-        toolkit.add_template_directory(config, 'theme/templates')
+        toolkit.add_template_directory(config, 'theme_1/templates')
         
         # Add this plugin's public dir to CKAN's extra_public_paths, so
         # that CKAN will use this plugin's custom static files.
-        toolkit.add_public_directory(config, 'theme/public')
+        toolkit.add_public_directory(config, 'theme_1/public')
         
         # Register this plugin's fanstatic directory with CKAN.
         # Here, 'fanstatic' is the path to the fanstatic directory
         # (relative to this plugin.py file), and 'example_theme' is the name
         # that we'll use to refer to this fanstatic directory from CKAN
         # templates.
-        toolkit.add_resource('theme/resources', 'barnet-theme')
+        toolkit.add_resource('theme_1/resources', 'barnet-theme')

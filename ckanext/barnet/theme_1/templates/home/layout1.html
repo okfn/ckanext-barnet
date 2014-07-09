@@ -1,0 +1,29 @@
+<div role="main">
+  <div class="container">
+    <div class="row row1">
+      <div class="span3 col1">
+        <div class="inner">
+          {% if intro %}
+            {{ h.render_markdown(intro) }}
+          {% else %}
+            <h1>{{ _("Welcome to CKAN") }}</h1>
+            <p>
+              {% trans %}This is a nice introductory paragraph about CKAN or the site
+              in general. We don't have any copy to go here yet but soon we will
+              {% endtrans %}
+            </p>
+          {% endif %}
+        </div>
+      </div>
+      <div class="span9 col2">
+        <div class="inner">
+          <h2 class="page-heading">{{ _("Open Barnet") }}</h2>
+  
+          {# Show groups here #}
+          {% snippet "group/snippets/group_list.html", groups=h.get_featured_groups(count=9) %}
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+

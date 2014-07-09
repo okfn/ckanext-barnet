@@ -1,0 +1,16 @@
+{% ckan_extends %}
+
+  {% block search_title %}
+    {% if not no_title %}
+      <h2 class="page-heading">
+        {% if group is defined %}
+          <span class="icon" style="background-image:url({{ group.image_display_url or h.url_for_static('/base/images/placeholder-group.png')}})"></span>
+        {% endif %}
+        <span class="inner">
+          {% snippet 'snippets/search_result_text.html', query=query, count=count, type=type %}
+        </span>
+      </h2>
+    {% endif %}
+  {% endblock %}
+
+ 
