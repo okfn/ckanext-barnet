@@ -205,7 +205,7 @@ a:focus {
   z-index: 3;
 }
 .flash-messages {
-  padding: 10px 15px 0px 15px;
+  padding: 0 15px;
 }
 .toolbar {
   padding: 2px 15px;
