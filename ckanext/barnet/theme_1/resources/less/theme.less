@@ -572,8 +572,16 @@ a:focus {
 
 
 /* Home */
-.homepage [role="main"] {
-  padding: 0;
+.homepage {
+  & > .container {
+    background-color:#fff;
+    padding-left:10px;
+    padding-right:10px;
+  }
+  
+  [role="main"] {
+    padding: 0;
+  }
 }
 .homepage.layout-1 .row1 .col2 {
   position: static;

@@ -491,6 +491,11 @@ a:focus {
   background-color: #00aaab;
 }
 /* Home */
+.homepage > .container {
+  background-color: #fff;
+  padding-left: 10px;
+  padding-right: 10px;
+}
 .homepage [role="main"] {
   padding: 0;
 }
