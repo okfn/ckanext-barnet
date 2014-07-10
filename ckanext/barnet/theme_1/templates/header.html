@@ -8,6 +8,13 @@
           <div class="account avatar authed" data-module="me" data-me="{{ c.userobj.id }}">
             
               {% block header_account_logged %}
+              
+              {% if 'pages' in g['plugins'] %}
+                <a href="{{ h.url_for(controller='ckanext.pages.controller:PagesController', action='pages_show', page='') }}" title="{{ _('Pages') }}" class="btn">
+                  <i class="icon-file"></i> {{ _('Pages') }}
+                </a>
+              {% endif %}
+              
               {% if c.userobj.sysadmin %}
                 
                   <a href="{{ h.url_for(controller='admin', action='index') }}" title="{{ _('Sysadmin settings') }}" class="btn">
