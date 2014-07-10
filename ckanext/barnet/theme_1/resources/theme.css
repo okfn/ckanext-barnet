@@ -140,6 +140,17 @@ a:focus {
 .account-masthead .header-image {
   padding: 25px 15px 10px 15px;
 }
+.account-masthead .header-text-logo-tagline {
+  padding: 5px 5px 5px 15px;
+}
+.account-masthead .header-text-logo-tagline h1,
+.account-masthead .header-text-logo-tagline h2 {
+  display: inline-block;
+  font-family: Georgia, Times, 'Times New Roman', serif;
+}
+.account-masthead .header-text-logo-tagline h2 {
+  color: #5d6167;
+}
 .account-masthead .account {
   margin: 30px 15px 0 15px;
 }
