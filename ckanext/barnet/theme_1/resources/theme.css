@@ -171,6 +171,9 @@ a:focus {
 .account-masthead .account .notifications.notifications-important .count {
   display: inline;
 }
+.account-masthead div > li {
+  display: none;
+}
 .masthead {
   min-height: 0;
 }
