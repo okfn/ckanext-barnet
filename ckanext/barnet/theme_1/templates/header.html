@@ -67,7 +67,7 @@
         <hgroup class="{{ g.header_class }}">
           {% block header_logo %}
             {% if g.site_logo %}
-              <a class="logo" href="{{ h.url('home') }}"><img src="{{ h.url_for_static(g.site_logo) }}" alt="{{ g.site_title }} Logo" title="{{ g.site_title }} Logo" /></a>
+              <a class="logo" href="http://www.barnet.gov.uk/"><img src="{{ h.url_for_static(g.site_logo) }}" alt="{{ g.site_title }} Logo" title="{{ g.site_title }} Logo" /></a>
             {% else %}
               <h1>
                 <a href="{{ h.url('home') }}">{{ g.site_title }}</a>
