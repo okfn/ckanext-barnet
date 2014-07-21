@@ -247,6 +247,7 @@ a:focus {
   background-color: #fff;
   border: solid 1px #e1e3e4;
   border-bottom: solid 6px #bdd9dd;
+  font-size: 22px;
 }
 .page-header {
   margin-left: 20px;
@@ -472,6 +473,7 @@ a:focus {
   padding: 15px;
   color: #fff;
   font-family: Georgia, Times, 'Times New Roman', serif;
+  font-size: 20px;
 }
 .media-grid .media-item p,
 .media-grid .media-item .count {
