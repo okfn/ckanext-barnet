@@ -1,0 +1,12 @@
+---
+
+- hosts: webserver
+  vars_files:
+    - vars/common.yml
+  roles:
+    - common
+    - common-web
+    - ckan
+    - ckanext-glasgow
+    - ckanext-oauth2waad
+    - ckanext-harvest
