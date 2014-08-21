@@ -140,16 +140,26 @@ a:focus {
 .account-masthead .header-image {
   padding: 25px 15px 10px 15px;
 }
+.account-masthead .header-text-logo,
 .account-masthead .header-text-logo-tagline {
   padding: 5px 5px 5px 15px;
 }
-.account-masthead .header-text-logo-tagline h1,
-.account-masthead .header-text-logo-tagline h2 {
+.account-masthead .header-text-logo h1,
+.account-masthead .header-text-logo-tagline h1 {
   display: inline-block;
-  font-family: Georgia, Times, 'Times New Roman', serif;
+  font-family: "Century Schoolbook", "Century Schoolbook L", "Palatino Linotype", Palatino, Palladio, "URW Palladio L", "Book Antiqua", Baskerville, "Bookman Old Style", "Bitstream Charter", "Nimbus Roman No9 L", Garamond, "Apple Garamond", "ITC Garamond Narrow", "New Century Schoolbook", Georgia, serif;
+  letter-spacing: -2px;
+  font-size: 38px;
+  margin-top: 5px;
+  margin-bottom: 0;
 }
-.account-masthead .header-text-logo-tagline h2 {
+.account-masthead .header-text-logo h1 a,
+.account-masthead .header-text-logo-tagline h1 a {
   color: #5d6167;
+}
+.account-masthead .header-text-logo h2,
+.account-masthead .header-text-logo-tagline h2 {
+  display: none;
 }
 .account-masthead .account {
   margin: 30px 15px 0 15px;

@@ -11,6 +11,7 @@
 @nav: #f8faf9;
 
 @serif: Georgia,Times,'Times New Roman',serif;
+@logo: "Century Schoolbook", "Century Schoolbook L", "Palatino Linotype", Palatino, Palladio, "URW Palladio L", "Book Antiqua", Baskerville, "Bookman Old Style", "Bitstream Charter", "Nimbus Roman No9 L", Garamond, "Apple Garamond", "ITC Garamond Narrow", "New Century Schoolbook", Georgia, serif;
 
 //Mixins
 .button-colour(@bg-colour, @text-colour: #fff) {
@@ -146,15 +147,23 @@ a:focus {
     padding:25px 15px 10px 15px;
   }
   
+  .header-text-logo,
   .header-text-logo-tagline {
     padding:5px 5px 5px 15px;
-    h1,
-    h2 {
+    h1 {
       display:inline-block;
-      font-family:@serif;
+      font-family:@logo;
+      letter-spacing:-2px;
+      font-size:38px;
+      margin-top:5px;
+      margin-bottom:0;
+      
+      a {
+        color:@grey;
+      }
     }
     h2 {
-      color:@grey;
+      display:none;
     }
   }
   
