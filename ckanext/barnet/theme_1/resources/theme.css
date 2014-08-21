@@ -459,6 +459,7 @@ a:focus {
   border-radius: 0;
   border-left: solid 1px #e1e3e4;
   border-right: solid 1px #e1e3e4;
+  cursor: pointer;
 }
 .media-grid .media-item .media-image {
   height: 138px;
@@ -490,6 +491,10 @@ a:focus {
 .media-grid .media-item .media-view:hover,
 .media-grid .media-item .media-view.hovered {
   border-top-color: #00aaab;
+}
+.ie8 .media-grid .media-item .media-view:hover,
+.ie8 .media-grid .media-item .media-view.hovered {
+  border-top-color: #bdd9dd;
 }
 .media-grid .media-item .media-view:hover .banner,
 .media-grid .media-item .media-view.hovered .banner {
