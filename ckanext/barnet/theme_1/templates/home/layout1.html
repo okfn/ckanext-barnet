@@ -6,10 +6,23 @@
           {% if intro %}
             {{ h.render_markdown(intro) }}
           {% else %}
-            <h1>{{ _("Welcome to CKAN") }}</h1>
+            <h1>{{ _("Welcome to Open Barnet") }}</h1>
             <p>
-              {% trans %}This is a nice introductory paragraph about CKAN or the site
-              in general. We don't have any copy to go here yet but soon we will
+              {% trans %}Open Barnet is the data portal for the London
+              Borough of Barnet. It is an important tool in pushing forward
+              Barnet’s Transparency Agenda, bringing together all our
+              published datasets and other information of interest on one
+              searchable database for anyone, anywhere to access. The aim
+              is to meet the needs of residents as well as businesses,
+              innovators and third sector service providers.
+              {% endtrans %}
+            </p>
+              
+            <p>
+              {% trans %}If there are any datasets that you would like to
+              see published in the future, or have any other queries or
+              feedback, please contact us at
+              <a href="mailto:open.data@barnet.gov.uk">open.data@barnet.gov.uk</a>.
               {% endtrans %}
             </p>
           {% endif %}
