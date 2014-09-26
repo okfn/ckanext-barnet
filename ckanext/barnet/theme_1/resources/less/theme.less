@@ -544,10 +544,20 @@ a:focus {
     border-left:solid 1px @lightgrey;
     border-right:solid 1px @lightgrey;
     
+    & > a {
+      display:block;
+      border-top:6px solid @lightgreen;
+      text-decoration:none;
+      
+      &:hover {
+        border-top-color:@green;
+      }
+    }
+    
     .media-image {
       height:138px;
       max-width:none;
-      margin: 6px 0 0 0;
+      margin: 0;
       border-radius:0;
     }
     
@@ -570,10 +580,6 @@ a:focus {
       border-radius:0;
       border:none;
       border-top:6px solid @lightgreen;
-      
-      .ie8 & {
-        background-image:url(../images/blank.png);
-      }
       
       .banner {
         background-color: @lightgreen;

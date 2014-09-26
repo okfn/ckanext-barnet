@@ -470,10 +470,18 @@ a:focus {
   border-left: solid 1px #e1e3e4;
   border-right: solid 1px #e1e3e4;
 }
+.media-grid .media-item > a {
+  display: block;
+  border-top: 6px solid #bdd9dd;
+  text-decoration: none;
+}
+.media-grid .media-item > a:hover {
+  border-top-color: #00aaab;
+}
 .media-grid .media-item .media-image {
   height: 138px;
   max-width: none;
-  margin: 6px 0 0 0;
+  margin: 0;
   border-radius: 0;
 }
 .media-grid .media-item .media-heading {
@@ -493,9 +501,6 @@ a:focus {
   border-radius: 0;
   border: none;
   border-top: 6px solid #bdd9dd;
-}
-.ie8 .media-grid .media-item .media-view {
-  background-image: url(../images/blank.png);
 }
 .media-grid .media-item .media-view .banner {
   background-color: #bdd9dd;
