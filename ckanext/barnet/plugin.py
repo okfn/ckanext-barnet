@@ -8,6 +8,7 @@ class BarnetPlugin(plugins.SingletonPlugin):
     '''
     # Declare that this class implements IConfigurer.
     plugins.implements(plugins.IConfigurer)
+    plugins.implements(plugins.IFacets, inherit=True)
 
     def update_config(self, config):
 
@@ -27,3 +28,7 @@ class BarnetPlugin(plugins.SingletonPlugin):
         # that we'll use to refer to this fanstatic directory from CKAN
         # templates.
         toolkit.add_resource('theme_1/resources', 'barnet-theme')
+
+    def dataset_facets(self, facets_dict, package_type):
+        facets_dict.pop('organization', None)
+        return facets_dict
