@@ -45,6 +45,13 @@
     </tr>
   {% endif %}
 
+  {% if pkg_dict.metadata_created %}
+    <tr>
+      <th scope="row" class="dataset-label">{{ _("Date Uploaded") }}</th>
+      <td class="dataset-details">{{ pkg_dict.metadata_created }}</td>
+    </tr>
+  {% endif %}
+
 {% block extras scoped %}
   {% for extra in h.sorted_extras(pkg_dict.extras) %}
     {% set key, value = extra %}
