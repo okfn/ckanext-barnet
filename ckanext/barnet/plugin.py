@@ -1,14 +1,16 @@
 import ckan.plugins as plugins
 import ckan.plugins.toolkit as toolkit
 
+from ckanext.barnet.logic import schema as barnet_schema
 
-class BarnetPlugin(plugins.SingletonPlugin):
+class BarnetPlugin(plugins.SingletonPlugin, toolkit.DefaultDatasetForm):
     '''Barnet theme plugin.
 
     '''
     # Declare that this class implements IConfigurer.
     plugins.implements(plugins.IConfigurer)
     plugins.implements(plugins.IFacets, inherit=True)
+    plugins.implements(plugins.IDatasetForm)
 
     def update_config(self, config):
 
@@ -32,3 +34,18 @@ class BarnetPlugin(plugins.SingletonPlugin):
     def dataset_facets(self, facets_dict, package_type):
         facets_dict.pop('organization', None)
         return facets_dict
+
+    def create_package_schema(self):
+        return barnet_schema.package_create_schema()
+
+    def update_package_schema(self):
+        return barnet_schema.package_update_schema()
+
+    def show_package_schema(self):
+        return barnet_schema.package_show_schema()
+
+    def is_fallback(self):
+        return True
+
+    def package_types(self):
+        return []

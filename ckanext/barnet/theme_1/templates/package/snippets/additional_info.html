@@ -52,6 +52,34 @@
     </tr>
   {% endif %}
 
+  {% if pkg_dict.frequency %}
+    <tr>
+      <th scope="row" class="dataset-label">{{ _("Frequency") }}</th>
+      <td class="dataset-details">{{ pkg_dict.frequency }}</td>
+    </tr>
+  {% endif %}
+
+  {% if pkg_dict.retention_period and pkg_dict.retention_count %}
+    <tr>
+      <th scope="row" class="dataset-label">{{ _("Retention") }}</th>
+      <td class="dataset-details">{{ pkg_dict.retention_count}} {{ pkg_dict.retention_period }}</td>
+    </tr>
+  {% endif %}
+
+  {% if pkg_dict.delivery_unit %}
+    <tr>
+      <th scope="row" class="dataset-label">{{ _("Delivery Unit") }}</th>
+      <td class="dataset-details">{{ pkg_dict.delivery_unit }}</td>
+    </tr>
+  {% endif %}
+
+  {% if pkg_dict.service %}
+    <tr>
+      <th scope="row" class="dataset-label">{{ _("Service") }}</th>
+      <td class="dataset-details">{{ pkg_dict.service }}</td>
+    </tr>
+  {% endif %}
+
 {% block extras scoped %}
   {% for extra in h.sorted_extras(pkg_dict.extras) %}
     {% set key, value = extra %}
