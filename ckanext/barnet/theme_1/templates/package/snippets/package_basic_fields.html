@@ -19,7 +19,7 @@
 
       <select id="field-frequency_update_period" name="frequency_update_period">
         {% for i in [' ', 'real-time', 'ad-hoc', 'daily', 'weekly', 'monthly', 'quarterly', 'annually', 'electoral term(s)', 'general election'] %}
-          <option value={{i}}{% if data.frequency_update_period == i %} selected{%endif %}>{{i}}</option>
+          <option value="{{i}}"{% if data.frequency_update_period == i %} selected{%endif %}>{{i}}</option>
         {% endfor %}
       </select>
 
