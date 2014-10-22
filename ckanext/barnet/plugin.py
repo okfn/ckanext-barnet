@@ -11,6 +11,7 @@ class BarnetPlugin(plugins.SingletonPlugin, toolkit.DefaultDatasetForm):
     plugins.implements(plugins.IConfigurer)
     plugins.implements(plugins.IFacets, inherit=True)
     plugins.implements(plugins.IDatasetForm)
+    plugins.implements(plugins.IRoutes, inherit=True)
 
     def update_config(self, config):
 
@@ -49,3 +50,13 @@ class BarnetPlugin(plugins.SingletonPlugin, toolkit.DefaultDatasetForm):
 
     def package_types(self):
         return []
+
+    # IRoutes
+
+    def before_map(self, map_):
+        map_.connect(
+            "/dataset/export.csv",
+            controller="ckanext.barnet.controllers:CSVExportController",
+            action="export",
+        )
+        return map_

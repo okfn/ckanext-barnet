@@ -1,0 +1,78 @@
+{
+    "__options": {
+        "append_unused": true,
+        "blacklist": ["^creator_user_id$", "^maintainer$", "^maintainer_email$"]
+    },
+    "Delivery Unit": {
+        "pattern_path": ["^extras$", "^Delivery Unit$"],
+        "unique": true
+    },
+    "Service": {
+        "pattern_path": ["^extras$", "^Service$"],
+        "unique": true
+    },
+    "Data Owner": {
+        "pattern_path": "^author$",
+        "unique": true,
+        "case_sensitive": true
+    },
+    "Contributor": {
+        "pattern_path": ["^extras$", "^Contributor.*"]
+    },
+    "Title": {
+        "pattern_path": "^title$",
+        "unique": true,
+        "case_sensitive": true
+    },
+    "Description": {
+        "pattern_path": "^notes$",
+        "unique": true,
+        "case_sensitive": true,
+        "max_length": 255
+    },
+    "Date Uploaded": {
+        "pattern_path": ["^extras$", "^Date Uploaded$"],
+        "unique": true
+    },
+    "Frequency": {
+        "pattern_path": ["^extras$", "^Frequency.*"],
+        "unique": true
+    },
+    "Retention Period": {
+        "pattern_path": ["^extras$", "^Retention Period.*"],
+        "unique": true
+    },
+    "Coverage": {
+        "pattern_path": ["^extras$", "^Coverage.*"],
+        "unique": true
+    },
+    "Format": {
+        "pattern_path": ["^resources$", "^format$"],
+        "case_sensitive": true,
+        "deduplicate": true
+    },
+    "Source": {
+        "pattern_path": "^url$",
+        "unique": true,
+        "case_sensitive": true
+    },
+    "Rights": {
+        "pattern_path": "^license_title$",
+        "unique": true,
+        "case_sensitive": true
+    },
+    "Identifier": {
+        "pattern_path": ["^extras$", "^Service Type URI.*"],
+        "unique": true,
+        "hyperlink": true
+    },
+    "Next Update": {
+        "pattern_path": ["^extras$", "^Next Update.*"],
+        "unique": true
+    },
+    "Version": {
+        "pattern_path": "^version$",
+        "unique": true,
+        "case_sensitive": true
+    }
+}
