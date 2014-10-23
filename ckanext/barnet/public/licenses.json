@@ -1,0 +1,105 @@
+[
+  {
+    "id": "notspecified",
+    "is_generic": true,
+    "title": "License Not Specified"
+  },
+  {
+    "id": "odc-pddl",
+    "domain_data": true,
+    "is_okd_compliant": true,
+    "url": "http://www.opendefinition.org/licenses/odc-pddl",
+    "title": "Open Data Commons Public Domain Dedication and License (PDDL)"
+  },
+  {
+    "domain_data": true,
+    "id": "odc-odbl",
+    "is_okd_compliant": true,
+    "url": "http://www.opendefinition.org/licenses/odc-odbl",
+    "title": "Open Data Commons Open Database License (ODbL)"
+  },
+  {
+    "domain_data": true,
+    "id": "odc-by",
+    "is_okd_compliant": true,
+    "url": "http://www.opendefinition.org/licenses/odc-by",
+    "title": "Open Data Commons Attribution License"
+  },
+  {
+    "domain_content": true,
+    "domain_data": true,
+    "id": "cc-zero",
+    "is_okd_compliant": true,
+    "url": "http://www.opendefinition.org/licenses/cc-zero",
+    "title": "Creative Commons CCZero"
+  },
+  {
+    "id": "cc-by",
+    "is_okd_compliant": true,
+    "url": "http://www.opendefinition.org/licenses/cc-by",
+    "title": "Creative Commons Attribution"
+  },
+  {
+    "domain_content": true,
+    "id": "cc-by-sa",
+    "is_okd_compliant": true,
+    "url": "http://www.opendefinition.org/licenses/cc-by-sa",
+    "title": "Creative Commons Attribution Share-Alike"
+  },
+  {
+    "domain_content": true,
+    "id": "gfdl",
+    "is_okd_compliant": true,
+    "url": "http://www.opendefinition.org/licenses/gfdl",
+    "title": "GNU Free Documentation License"
+  },
+  {
+    "domain_content": true,
+    "id": "other-open",
+    "is_generic": true,
+    "is_okd_compliant": true,
+    "title": "Other (Open)"
+  },
+  {
+    "domain_content": true,
+    "id": "other-pd",
+    "is_generic": true,
+    "is_okd_compliant": true,
+    "title": "Other (Public Domain)"
+  },
+  {
+    "domain_content": true,
+    "id": "other-at",
+    "is_generic": true,
+    "is_okd_compliant": true,
+    "title": "Other (Attribution)"
+  },
+  {
+    "domain_content": true,
+    "id": "uk-ogl",
+    "is_okd_compliant": true,
+    "url": "http://reference.data.gov.uk/id/open-government-licence",
+    "title": "UK Open Government Licence (OGL)"
+  },
+  {
+    "id": "cc-nc",
+    "url": "http://creativecommons.org/licenses/by-nc/2.0/",
+    "title": "Creative Commons Non-Commercial (Any)"
+  },
+  {
+    "id": "other-nc",
+    "is_generic": true,
+    "title": "Other (Non-Commercial)"
+  },
+  {
+    "id": "other-closed",
+    "is_generic": true,
+    "title": "Other (Not Open)"
+  },
+  {
+    "id": "cc-pdm",
+    "title": "Creative Commons Public Domain Mark 1.0",
+    "url": "http://creativecommons.org/publicdomain/mark/1.0/",
+    "is_okd_compliant": true
+  }
+]

@@ -4,6 +4,15 @@ ckanext-barnet
 Config, Extensions, and Themes for the Open Barnet CKAN Portal.
 
 
+## Licenses
+
+To get the custom licenses:
+
+    licenses_group_url =  https://open.barnet.gov.uk/licenses.json
+
+in config file.
+
+
 ##Themes 
 
 To switch themes: In plugin.py, change references to ```theme_1``` to ```theme_2``` (or vice versa).

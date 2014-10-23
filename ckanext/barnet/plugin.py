@@ -24,6 +24,9 @@ class BarnetPlugin(plugins.SingletonPlugin, toolkit.DefaultDatasetForm):
         # Add this plugin's public dir to CKAN's extra_public_paths, so
         # that CKAN will use this plugin's custom static files.
         toolkit.add_public_directory(config, 'theme_1/public')
+
+        # Stuff that both theme_1 and theme_2 need.
+        toolkit.add_public_directory(config, 'public')
         
         # Register this plugin's fanstatic directory with CKAN.
         # Here, 'fanstatic' is the path to the fanstatic directory
