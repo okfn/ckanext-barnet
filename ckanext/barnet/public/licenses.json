@@ -2,7 +2,8 @@
   {
     "id": "notspecified",
     "is_generic": true,
-    "title": "License Not Specified"
+    "title": "License Not Specified",
+    "is_okd_compliant": false
   },
   {
     "id": "odc-pddl",
@@ -84,16 +85,19 @@
   {
     "id": "cc-nc",
     "url": "http://creativecommons.org/licenses/by-nc/2.0/",
-    "title": "Creative Commons Non-Commercial (Any)"
+    "title": "Creative Commons Non-Commercial (Any)",
+    "is_okd_compliant": true
   },
   {
     "id": "other-nc",
     "is_generic": true,
+    "is_okd_compliant": true,
     "title": "Other (Non-Commercial)"
   },
   {
     "id": "other-closed",
     "is_generic": true,
+    "is_okd_compliant": false,
     "title": "Other (Not Open)"
   },
   {
