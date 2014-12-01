@@ -2,6 +2,7 @@ import ckan.plugins as plugins
 import ckan.plugins.toolkit as toolkit
 
 from ckanext.barnet.logic import schema as barnet_schema
+from ckanext.barnet.logic import auth
 
 class BarnetPlugin(plugins.SingletonPlugin, toolkit.DefaultDatasetForm):
     '''Barnet theme plugin.
@@ -12,6 +13,7 @@ class BarnetPlugin(plugins.SingletonPlugin, toolkit.DefaultDatasetForm):
     plugins.implements(plugins.IFacets, inherit=True)
     plugins.implements(plugins.IDatasetForm)
     plugins.implements(plugins.IRoutes, inherit=True)
+    plugins.implements(plugins.IAuthFunctions, inherit=True)
 
     def update_config(self, config):
 
@@ -63,3 +65,8 @@ class BarnetPlugin(plugins.SingletonPlugin, toolkit.DefaultDatasetForm):
             action="export",
         )
         return map_
+
+    def get_auth_functions(self):
+        return {
+            'export_csv': auth.export_csv,
+        }
