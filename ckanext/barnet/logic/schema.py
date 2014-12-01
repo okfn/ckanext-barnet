@@ -16,7 +16,7 @@ def package_create_schema():
     schema.update({
         'frequency_time_modifier': [ignore_missing, unicode,
                                     convert_to_extras],
-        'frequency_count': [ignore_missing, unicode, convert_to_extras],
+        'frequency_count': [ignore_missing, convert_to_extras],
         'frequency_update_period': [ignore_missing, unicode,
                                     convert_to_extras],
         'frequency_period': [ignore_missing, unicode, convert_to_extras],
@@ -37,7 +37,7 @@ def package_update_schema():
     schema.update({
         'frequency_time_modifier': [ignore_missing, unicode,
                                     convert_to_extras],
-        'frequency_count': [ignore_missing, unicode, convert_to_extras],
+        'frequency_count': [ignore_missing, convert_to_extras],
         'frequency_update_period': [ignore_missing, unicode,
                                     convert_to_extras],
         'frequency_period': [ignore_missing, unicode, convert_to_extras],
@@ -58,7 +58,8 @@ def package_show_schema():
     schema.update({
         'frequency_time_modifier': [convert_from_extras, ignore_missing,
                                     unicode],
-        'frequency_count': [convert_from_extras, ignore_missing],
+        'frequency_count': [convert_from_extras, ignore_missing,
+                            is_positive_integer],
         'frequency_update_period': [convert_from_extras, ignore_missing],
         'frequency_period': [convert_from_extras, ignore_missing],
 
@@ -75,12 +76,9 @@ def package_show_schema():
 
 
 def collate_frequency_fields(key, converted_data, errors, context):
-    '''fetches the extras from the frequency fields and joins them into
-       the single 'frequency' field
+    '''frequency is just freuqency_update_period if it exists
+    otherwise it is 'Every {0} {1}'.format(frequency_count, frequency_perdiod
     '''
-    keys = ['frequency_time_modifier', 'frequency_count',
-            'frequency_update_period', 'frequency_period']
-
     # convert all the extras from
     # ('extras', <int>, 'key'): 'frequency_count'
     # ('extras', <int>, 'value'): '10'
@@ -89,5 +87,16 @@ def collate_frequency_fields(key, converted_data, errors, context):
     for k, v in converted_data.iteritems():
         if k[0] == 'extras' and k[-1] == 'key':
             extras[v] = converted_data[k[0], k[1], 'value']
+    option_one = extras.get('frequency_update_period')
+    option_two = extras.get('frequency_period')
 
-    converted_data['frequency', ] = ' '.join([extras.get(k, '') for k in keys])
+    if option_one:
+        converted_data['frequency', ] = option_one
+    elif option_two:
+        converted_data['frequency', ] = ' '.join([
+            'Every',
+            extras.get('frequency_count', ''),
+            option_two
+        ])
+    else:
+        converted_data['frequency', ] = ''

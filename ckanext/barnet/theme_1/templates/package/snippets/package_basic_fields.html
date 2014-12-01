@@ -1,40 +1,44 @@
 {% ckan_extends %}
 
 {% block package_basic_fields_custom %}
-  <div class="control-group control-select">
+  {% resource 'barnet-theme/scripts/frequency_field.js' %}
+  <div class="control-group control-select" data-module="barnet_frequency_field_hider">
     <label class="control-label">Frequency</label>
     <div class="controls ">
-      <select id="field-frequency_time_modifier" name="frequency_time_modifier">
-        {% for i in ["NULL", "After each", "Every"] %}
-          <option value={{i}}{% if data.frequency_time_modifier == i %} selected{%endif %}>{{i}}</option>
-        {% endfor %}
-      </select>
+      <div>
+        <strong>Option 1:</strong>
+        <select id="field-frequency_update_period" name="frequency_update_period">
+          {% for i in ['', 'daily', 'weekly', 'monthly', 'quarterly', 'annually'] %}
+            <option value="{{i}}"{% if data.frequency_update_period == i %} selected{%endif %}>{{i}}</option>
+          {% endfor %}
+        </select>
 
-      <select id="field-frequency_count" name="frequency_count">
-        <option value=" "{% if data.frequency_count == '' %} selected{%endif %}></option>
-        {% for i in range(1, 20) %}
-          <option value="{{i}}"{% if data.frequency_count == i %} selected{%endif %}>{{i}}</option>
-        {% endfor %}
-      </select>
+      </div>
 
-      <select id="field-frequency_update_period" name="frequency_update_period">
-        {% for i in [' ', 'real-time', 'ad-hoc', 'daily', 'weekly', 'monthly', 'quarterly', 'annually', 'electoral term(s)', 'general election'] %}
-          <option value="{{i}}"{% if data.frequency_update_period == i %} selected{%endif %}>{{i}}</option>
-        {% endfor %}
-      </select>
+      <div> 
+        <strong>Option 2:</strong>
+        Every
+        <select class="input-mini" id="field-frequency_count" name="frequency_count">
+          <option value=""{% if data.frequency_count == '' %} selected{%endif %}></option>
+          {% for i in range(2, 20) %}
+            <option value="{{i}}"{% if data.frequency_count == i %} selected{%endif %}>{{i}}</option>
+          {% endfor %}
+        </select>
 
-      <select id="field-frequency_period" name="frequency_period">
-        {% for i in [' ', 'week', 'month', 'year', 'parliament'] %}
-          <option value={{i}}{% if data.frequency_period == i %} selected{%endif %}>{{i}}</option>
-        {% endfor %}
-      </select>
+
+        <select class="input-small" id="field-frequency_period" name="frequency_period">
+          {% for i in ['', 'days', 'weeks', 'months', 'years'] %}
+            <option value={{i}}{% if data.frequency_period == i %} selected{%endif %}>{{i}}</option>
+          {% endfor %}
+        </select>
+      </div>
     </div>
   </div>
 
   <div class="control-group control-select">
     <label class="control-label">Retention</label>
     <div class="controls ">
-      <select id="field-retention_count" name="retention_count">
+      <select class="input-mini" id="field-retention_count" name="retention_count">
         {% for i in range(1, 16) %}
           <option value={{i}}{% if data.retention_count == i %} selected{%endif %}>{{i}}</option>
         {% endfor %}
