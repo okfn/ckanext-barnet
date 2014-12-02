@@ -8,7 +8,7 @@
       <div>
         <strong>Option 1:</strong>
         <select id="field-frequency_update_period" name="frequency_update_period">
-          {% for i in ['', 'daily', 'weekly', 'monthly', 'quarterly', 'annually'] %}
+          {% for i in ['', 'Daily', 'Weekly', 'Monthly', 'Quarterly', 'Annually'] %}
             <option value="{{i}}"{% if data.frequency_update_period == i %} selected{%endif %}>{{i}}</option>
           {% endfor %}
         </select>
