@@ -85,14 +85,14 @@
   {% if pkg_dict.coverage_start_date %}
     <tr>
       <th scope="row" class="dataset-label">{{ _("Coverage (start date)") }}</th>
-      <td class="dataset-details">{{ pkg_dict.coverage_start_date }}</td>
+      <td class="dataset-details">{{ h.convert_to_british_date_format(pkg_dict.coverage_start_date)}}</td>
     </tr>
   {% endif %}
 
   {% if pkg_dict.coverage_end_date %}
     <tr>
       <th scope="row" class="dataset-label">{{ _("Coverage (end date)") }}</th>
-      <td class="dataset-details">{{ pkg_dict.coverage_end_date }}</td>
+      <td class="dataset-details">{{ h.convert_to_british_date_format(pkg_dict.coverage_end_date) }}</td>
     </tr>
   {% endif %}
 
