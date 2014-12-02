@@ -28,6 +28,10 @@ def package_create_schema():
         'retention_period': [ignore_missing, unicode, convert_to_extras],
         'delivery_unit': [ignore_missing, unicode, convert_to_extras],
         'service': [ignore_missing, unicode, convert_to_extras],
+        'next_update': [ignore_missing, unicode, convert_to_extras],
+        'review_date': [ignore_missing, unicode, convert_to_extras],
+        'coverage_start_date': [ignore_missing, unicode, convert_to_extras],
+        'coverage_end_date': [ignore_missing, unicode, convert_to_extras],
     })
     return schema
 
@@ -49,6 +53,10 @@ def package_update_schema():
         'retention_period': [ignore_missing, unicode, convert_to_extras],
         'delivery_unit': [ignore_missing, unicode, convert_to_extras],
         'service': [ignore_missing, unicode, convert_to_extras],
+        'next_update': [ignore_missing, unicode, convert_to_extras],
+        'review_date': [ignore_missing, unicode, convert_to_extras],
+        'coverage_start_date': [ignore_missing, unicode, convert_to_extras],
+        'coverage_end_date': [ignore_missing, unicode, convert_to_extras],
     })
     return schema
 
@@ -71,6 +79,10 @@ def package_show_schema():
         'retention_period': [convert_from_extras, ignore_missing],
         'delivery_unit': [convert_from_extras, ignore_missing],
         'service': [convert_from_extras, ignore_missing],
+        'next_update': [convert_from_extras, ignore_missing],
+        'review_date': [convert_from_extras, ignore_missing],
+        'coverage_start_date': [convert_from_extras, ignore_missing],
+        'coverage_end_date': [convert_from_extras, ignore_missing],
     })
     return schema
 

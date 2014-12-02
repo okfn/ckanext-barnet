@@ -56,4 +56,16 @@
   {{ form.input('delivery_unit', label=_('Delivery Unit'), id='field-delivery_unit', value=data.delivery_unit, error=errors.delivery_unit, classes=['control-medium']) }}
 
   {{ form.input('service', label=_('Service'), id='field-service', value=data.service, error=errors.service, classes=['control-medium']) }}
+
+  <div id="next_update" data-module="barnet_dates">
+    {% resource 'vendor/jquery.ui.core.js' %}
+    {% resource 'barnet-theme/vendor/jquery.ui.theme.css' %}
+    {% resource 'barnet-theme/vendor/jquery.ui.datepicker.js' %}
+    {% resource 'barnet-theme/vendor/jquery.ui.datepicker.css' %}
+    {% resource 'barnet-theme/scripts/dates.js' %}
+    {{ form.input('next_update', label=_('Next Update'), id='field-next_update', value=data.next_update, error=errors.next_update, classes=['control-medium', 'has_datepicker']) }}
+    {{ form.input('review_date', label=_('Review Update'), id='field-review_date', value=data.review_date, error=errors.review_date, classes=['control-medium', 'has_datepicker']) }}
+    {{ form.input('coverage_start_date', label=_('Coverage (start date)'), id='field-coverage_start_date', value=data.coverage_start_date, error=errors.coverage_start_date, classes=['control-medium', 'has_datepicker']) }}
+    {{ form.input('coverage_end_date', label=_('Coverage (end date)'), id='field-coverage_end_date', value=data.coverage_end_date, error=errors.coverage_end_date, classes=['control-medium', 'has_datepicker']) }}
+  </div>
 {% endblock %}

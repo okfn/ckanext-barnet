@@ -68,6 +68,34 @@
     </tr>
   {% endif %}
 
+  {% if pkg_dict.next_update %}
+    <tr>
+      <th scope="row" class="dataset-label">{{ _("Next update") }}</th>
+      <td class="dataset-details">{{ pkg_dict.next_update }}</td>
+    </tr>
+  {% endif %}
+
+  {% if pkg_dict.review_date %}
+    <tr>
+      <th scope="row" class="dataset-label">{{ _("Review date") }}</th>
+      <td class="dataset-details">{{ pkg_dict.review_date }}</td>
+    </tr>
+  {% endif %}
+
+  {% if pkg_dict.coverage_start_date %}
+    <tr>
+      <th scope="row" class="dataset-label">{{ _("Coverage (start date)") }}</th>
+      <td class="dataset-details">{{ pkg_dict.coverage_start_date }}</td>
+    </tr>
+  {% endif %}
+
+  {% if pkg_dict.coverage_end_date %}
+    <tr>
+      <th scope="row" class="dataset-label">{{ _("Coverage (end date)") }}</th>
+      <td class="dataset-details">{{ pkg_dict.coverage_end_date }}</td>
+    </tr>
+  {% endif %}
+
 {% block extras scoped %}
   {% for extra in h.sorted_extras(pkg_dict.extras) %}
     {% set key, value = extra %}
