@@ -5,6 +5,7 @@ import inspect
 import ckan.model as model
 import ckan.plugins.toolkit as toolkit
 import ckanapi_exporter.exporter as exporter
+import losser.losser
 
 
 def this_directory():
@@ -16,6 +17,57 @@ def this_directory():
     """
     return os.path.dirname(os.path.abspath(
         inspect.getfile(inspect.currentframe())))
+
+
+def export(columns):
+    """Export all the datasets from the Barnet site to a CSV table.
+
+    A CSV table is a list of OrderedDicts in which each dict has the same keys.
+
+    We implement our own version of ckanapi-exporter's export() function
+    because we want to get the data as a table, not as a CSV string.
+
+    """
+    datasets = exporter.get_datasets_from_ckan(
+        "https://open.barnet.gov.uk/", apikey=None)
+    exporter.extras_to_dicts(datasets)
+    csv_table = losser.losser.table(
+        datasets, columns, csv=False, pretty=False)
+    return csv_table
+
+
+def get_user_name(user_id):
+    """Return the user name for the given user ID.
+
+    We implement our own function (and access CKAN's model directly) because
+    CKAN's user_show() action is too slow.
+
+    """
+    import ckan.model as model
+    user_object = model.User.get(user_id)
+    return user_object.fullname or user_object.name or user_object.id
+
+
+def convert_user_ids_to_user_names(csv_table):
+    """Convert the user IDs in the given table to user names.
+
+    Convert the user ID in the "Uploaded By" key of each dict in the given
+    table (list of dicts) into the corresponding user name.
+
+    """
+    for csv_dict in csv_table:
+        user_id = csv_dict.get("Uploaded By")
+        if not user_id:
+            continue
+        user_name = get_user_name(user_id)
+        if user_name:
+            csv_dict["Uploaded By"] = user_name
+
+
+def convert_csv_table_to_csv_string(csv_table):
+    """Return a CSV-formatted string for the given table (list of dicts)."""
+    csv_string = losser.losser._table_to_csv(csv_table)
+    return csv_string
 
 
 class CSVExportController(toolkit.BaseController):
@@ -31,8 +83,16 @@ class CSVExportController(toolkit.BaseController):
                 'Need to be organization administrator to export as CSV')
             )
         columns = os.path.join(this_directory(), "columns.json")
-        csv_string = exporter.export("https://open.barnet.gov.uk/",
-                                     columns=columns)
+
+        csv_table = export(columns)
+
+        # export() returns user IDs not user names in the "Uploaded By" column
+        # because that's all the dataset dicts that package_search() returns
+        # contain. Convert these IDs to user names ourselves.
+        convert_user_ids_to_user_names(csv_table)
+
+        csv_string = convert_csv_table_to_csv_string(csv_table)
+
         toolkit.response.headers["Content-type"] = "text/csv"
         toolkit.response.headers["Content-disposition"] = (
             "attachment; filename=export.csv")

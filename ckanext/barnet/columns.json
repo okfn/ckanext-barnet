@@ -74,5 +74,10 @@
         "pattern_path": "^version$",
         "unique": true,
         "case_sensitive": true
+    },
+    "Uploaded By": {
+        "pattern_path": ["^creator_user_id$"],
+        "unique": true,
+        "case_sensitive": true
     }
 }
