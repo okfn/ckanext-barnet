@@ -71,14 +71,14 @@
   {% if pkg_dict.next_update %}
     <tr>
       <th scope="row" class="dataset-label">{{ _("Next update") }}</th>
-      <td class="dataset-details">{{ pkg_dict.next_update }}</td>
+      <td class="dataset-details">{{ h.convert_to_british_date_format(pkg_dict.next_update) }}</td>
     </tr>
   {% endif %}
 
   {% if pkg_dict.review_date %}
     <tr>
       <th scope="row" class="dataset-label">{{ _("Review date") }}</th>
-      <td class="dataset-details">{{ pkg_dict.review_date }}</td>
+      <td class="dataset-details">{{ h.convert_to_british_date_format(pkg_dict.review_date) }}</td>
     </tr>
   {% endif %}
 
