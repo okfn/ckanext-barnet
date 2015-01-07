@@ -36,7 +36,7 @@
   {% if pkg_dict.metadata_created %}
     <tr>
       <th scope="row" class="dataset-label">{{ _("Date Uploaded") }}</th>
-      <td class="dataset-details">{{ pkg_dict.metadata_created }}</td>
+      <td class="dataset-details">{{ h.render_datetime(h.date_str_to_datetime(pkg_dict.metadata_created), '%d/%m/%Y') }}</td>
     </tr>
   {% endif %}
 
