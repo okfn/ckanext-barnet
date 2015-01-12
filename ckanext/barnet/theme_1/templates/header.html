@@ -20,6 +20,9 @@
                   <a href="{{ h.url_for(controller='admin', action='index') }}" title="{{ _('Sysadmin settings') }}" class="btn">
                     <i class="icon-legal"></i> {{ _('Admin') }}
                   </a>
+                  <a href="{{ h.url_for(controller='user', action='register') }}" title="{{ _('Create User') }}" class="btn">
+                    {{ _('Create New User') }}
+                  </a>
                 
               {% endif %}
               

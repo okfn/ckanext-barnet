@@ -66,11 +66,18 @@ class BarnetPlugin(plugins.SingletonPlugin, toolkit.DefaultDatasetForm):
             controller="ckanext.barnet.controllers:CSVExportController",
             action="export",
         )
+        map_.connect(
+            'register',
+            '/user/register', 
+            controller='ckanext.barnet.controllers:BarnetUserController',
+            action='register'
+        )
         return map_
 
     def get_auth_functions(self):
         return {
             'export_csv': auth.export_csv,
+            'user_create': auth.user_create,
         }
 
     def get_helpers(self):

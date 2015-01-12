@@ -4,6 +4,9 @@ import inspect
 
 import ckan.model as model
 import ckan.plugins.toolkit as toolkit
+from ckan.controllers.user import UserController
+from ckan import new_authz
+
 import ckanapi_exporter.exporter as exporter
 import losser.losser
 
@@ -97,3 +100,35 @@ class CSVExportController(toolkit.BaseController):
         toolkit.response.headers["Content-disposition"] = (
             "attachment; filename=export.csv")
         return csv_string
+
+
+class BarnetUserController(UserController):
+    def new(self, data=None, errors=None, error_summary=None):
+        '''This is a modified version of the core user controller
+
+        We have removed the lines redirecting the user the logout page
+        if they are already logged in, this allows sysadmins to create
+        users as we have disabled user registration unless they are
+        sys admins'''
+        context = {'model': model, 'session': model.Session,
+                   'user': toolkit.c.user or toolkit.c.author,
+                   'auth_user_obj': toolkit.c.userobj,
+                   'schema': self._new_form_to_db_schema(),
+                   'save': 'save' in toolkit.request.params}
+
+        try:
+            toolkit.check_access('user_create', context)
+        except toolkit.NotAuthorized:
+            toolkit.abort(401, toolkit._('Unauthorized to create a user'))
+
+        if context['save'] and not data:
+            return self._save_new(context)
+
+        data = data or {}
+        errors = errors or {}
+        error_summary = error_summary or {}
+        vars = {'data': data, 'errors': errors, 'error_summary': error_summary}
+
+        toolkit.c.is_sysadmin = new_authz.is_sysadmin(toolkit.c.user)
+        toolkit.c.form = toolkit.render(self.new_user_form, extra_vars=vars)
+        return toolkit.render('user/new.html')
