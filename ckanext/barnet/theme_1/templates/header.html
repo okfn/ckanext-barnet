@@ -116,7 +116,10 @@
               ) }}
             {% endblock %}
             <li><a href="http://www.barnet.gov.uk/contact">{{ _('Contact') }}</a></li>
-            {% set api_url = 'http://docs.ckan.org/en/{0}/api.html'.format(g.ckan_doc_version) %}
+            {# {% set api_url = 'http://docs.ckan.org/en/{0}/api.html'.format(g.ckan_doc_version) %}
+              need to set this back when ckan 2.2.2 is released
+            #}
+            {% set api_url = 'http://docs.ckan.org/en/2.1.3/api.html' %}
             <li><a href="{{ api_url }}">{{ _('API') }}</a></li>
           </ul>
         </nav>
