@@ -53,7 +53,7 @@ def get_user_name(user_id):
         user_dict = toolkit.get_action('user_show')(context, {'id': user_id})
     except toolkit.NotFound:
         return None
-    return user_dict['username']
+    return user_dict['name']
 
 
 def convert_user_ids_to_user_names(csv_table):
