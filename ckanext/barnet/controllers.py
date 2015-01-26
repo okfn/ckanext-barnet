@@ -51,7 +51,7 @@ def get_user_name(user_id):
                'return_minimal': True}
     try:
         user_dict = toolkit.get_action('user_show')(context, {'id': user_id})
-    except toolkit.NotFound:
+    except toolkit.ObjectNotFound:
         return None
     return user_dict['name']
 
