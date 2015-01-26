@@ -47,8 +47,13 @@ def get_user_name(user_id):
 
     """
     import ckan.model as model
-    user_object = model.User.get(user_id)
-    return user_object.fullname or user_object.name or user_object.id
+    context = {'model': model, 'session': model.Session,
+               'return_minimal': True}
+    try:
+        user_dict = toolkit.get_action('user_show')(context, {'id': user_id})
+    except toolkit.NotFound:
+        return None
+    return user_dict['username']
 
 
 def convert_user_ids_to_user_names(csv_table):
