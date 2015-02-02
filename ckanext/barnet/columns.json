@@ -46,8 +46,13 @@
         "pattern_path": "^retention_period",
         "unique": true
     },
-    "Coverage": {
-        "pattern_path": "coverage.*"
+    "Coverage Start Date": {
+        "pattern_path": "^coverage_start_date$",
+        "unique": true
+    },
+    "Coverage End Date": {
+        "pattern_path": "^coverage_end_date$",
+        "unique": true
     },
     "Format": {
         "pattern_path": ["^resources$", "^format$"],
