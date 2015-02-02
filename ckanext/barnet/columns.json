@@ -4,11 +4,11 @@
         "blacklist": ["^creator_user_id$", "^maintainer$", "^maintainer_email$"]
     },
     "Delivery Unit": {
-        "pattern_path": ["^extras$", "^Delivery Unit$"],
+        "pattern_path": "^delivery_unit$",
         "unique": true
     },
     "Service": {
-        "pattern_path": ["^extras$", "^Service$"],
+        "pattern_path": "^service$",
         "unique": true
     },
     "Data Owner": {
@@ -31,20 +31,23 @@
         "max_length": 255
     },
     "Date Uploaded": {
-        "pattern_path": ["^extras$", "^Date Uploaded$"],
+        "pattern_path": "^metadata_created$",
         "unique": true
     },
     "Frequency": {
-        "pattern_path": ["^extras$", "^Frequency.*"],
+        "pattern_path": "^frequency$",
+        "unique": true
+    },
+    "Retention Period Length": {
+        "pattern_path": "^retention_count$",
         "unique": true
     },
     "Retention Period": {
-        "pattern_path": ["^extras$", "^Retention Period.*"],
+        "pattern_path": "^retention_period",
         "unique": true
     },
     "Coverage": {
-        "pattern_path": ["^extras$", "^Coverage.*"],
-        "unique": true
+        "pattern_path": "coverage.*"
     },
     "Format": {
         "pattern_path": ["^resources$", "^format$"],
@@ -67,7 +70,7 @@
         "hyperlink": true
     },
     "Next Update": {
-        "pattern_path": ["^extras$", "^Next Update.*"],
+        "pattern_path": "^next_update$",
         "unique": true
     },
     "Version": {
@@ -79,5 +82,9 @@
         "pattern_path": ["^creator_user_id$"],
         "unique": true,
         "case_sensitive": true
+    },
+    "Extras": {
+        "pattern_path": ["^extras", ".*"],
+        "return_multiple_columns": true
     }
 }
